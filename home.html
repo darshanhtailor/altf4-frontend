@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://unpkg.com/flickity@2/dist/flickity.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <title>Home</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .login-box {
+            font-weight: bold;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+        }
+
+        .login-box div {
+            margin: 20px;
+            padding: 10px;
+            border-radius: 5px;
+            color: white;
+            top: 0px;
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .login-box div:hover {
+            top: -3px;
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+        }
+
+        #teacherLogin {
+            background-color: #FF2E63;
+        }
+
+        #studentLogin {
+            background-color: #25478B;
+        }
+
+        .altf4logo {
+            margin-right: auto;
+            width: 150px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        .home-page-design {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            height: 60%;
+            color: #FF2E63;
+        }
+
+        .design-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .headname {
+            font-size: 200px;
+            line-height: auto;
+        }
+
+        .home-page-design img {
+            width: 45vw;
+        }
+
+        .motto {
+            font-size: 30px;
+            color: black;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .login-box {
+                justify-content: center;
+            }
+
+            .altf4logo {
+                display: none;
+            }
+
+            .home-page-design {
+                justify-content: center;
+            }
+
+            .home-page-design img {
+                display: none;
+            }
+
+            .headname {
+                font-size: 30vw;
+            }
+        }
+
+        /* Slider */
+        .carouselContainer {
+            text-align: center;
+            margin: 100px 1.5vw;
+            padding: 40px 10px;
+
+        }
+
+        .carouselContainer h1 {
+            font-weight: 600;
+            color: #f7032e;
+            margin: 1% 2%;
+            font-size: 33px;
+        }
+
+        .cell {
+            width: 325px;
+            height: auto;
+            margin: 20px 10px;
+            overflow: hidden;
+            text-align: center;
+            cursor: default;
+            background: whitesmoke;
+            border: 1px solid gray;
+            box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .cell:hover {
+            box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+        }
+
+        .cell img {
+            height: 12vw;
+        }
+
+        .cellHeading {
+            font-size: 25px;
+            margin: 0% 2%;
+            color: #f90a33;
+            font-weight: bold;
+        }
+
+
+        .cellText {
+            margin: 2% 2%;
+            padding: 2% 2%;
+            text-align: justify;
+            color: black;
+            font-size: 18px;
+        }
+
+        .startCourseBtn {
+
+            padding: 0.5vw 2vw;
+            background: black;
+            color: white;
+            border-radius: 15px;
+            transition: all 0.5s ease 0s;
+            font-size: 15px;
+        }
+
+        .startCourseBtn:hover {
+            transform: scale(1.05);
+            background: white;
+            cursor: pointer;
+            color: black;
+        }
+
+        .startCourseBtn a {
+            text-decoration: none;
+            color: #101010;
+
+        }
+
+        /* Details CSS */
+        .container {
+            display: flex;
+            align-items: center;
+            /* margin: 2% 2%; */
+            /* padding: 3% 1%; */
+        }
+
+        .textarea {
+            position: relative;
+            text-align: justify;
+            margin: auto;
+            padding: 0 4%;
+
+        }
+
+        .textarea h1 {
+            text-align: left;
+            color: #f7032e;
+            margin: 4% 0px;
+        }
+
+        .textarea p {
+            font-size: 20px;
+        }
+
+        .imagearea {
+            margin: 2% 5%;
+        }
+
+        .imagearea img {
+            border-radius: 10px;
+            width: 41vw;
+            height: 20vw;
+            transition: all 0.3s ease 0s;
+            filter: drop-shadow(5px 5px 5px rgb(77, 75, 75));
+        }
+
+        .imagearea img:hover {
+            transform: scale(1.05);
+            filter: drop-shadow(5px 5px 5px #222);
+
+        }
+
+        @media screen and (max-width:767px) {
+            .imagearea img {
+                display: none;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <head>
+        <div class="login-box">
+            <img src="altf4 logo.svg" alt="altf4 logo" class="altf4logo">
+            <div id="teacherLogin">
+                Teacher Login
+            </div>
+            <div id="studentLogin">
+                Student Login
+            </div>
+        </div>
+    </head>
+    <div class="home-page-design">
+        <div class="design-content">
+            <p class="headname">altf4</p>
+            <p class="motto">One stop, full stack.</p>
+        </div>
+        <img src="home svg.svg">
+    </div>
+
+    <!-- Slider -->
+    <div class="carouselContainer">
+        <h1>Curated Courses by Expert Faculties</h1>
+        <div class="main-carousel">
+
+            <div class="cell">
+                <img src="images/htmlcssjs.png">
+                <div class="cellHeading">
+                    HTML CSS JS
+                </div>
+                <div class="cellText">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati eum assumenda voluptas
+                    blanditiis
+                    culpa, dolores dolorum minima vel consectetur rem!
+                </div>
+            </div>
+            <div class="cell"><img src="images/php.png">
+                <div class="cellHeading">
+                    PHP
+                </div>
+                <div class="cellText">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati eum assumenda voluptas
+                    blanditiis
+                    culpa, dolores dolorum minima vel consectetur rem!
+                </div>
+            </div>
+            <div class="cell"><img src="images/mongodb.png">
+                <div class="cellHeading">
+                    MONGODB
+                </div>
+                <div class="cellText">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati eum assumenda voluptas
+                    blanditiis
+                    culpa, dolores dolorum minima vel consectetur rem!
+                </div>
+            </div>
+            <div class="cell"><img src="images/express.png">
+                <div class="cellHeading">
+                    EXPRESS JS
+                </div>
+                <div class="cellText">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati eum assumenda voluptas
+                    blanditiis
+                    culpa, dolores dolorum minima vel consectetur rem!
+                </div>
+            </div>
+            <div class="cell"><img src="images/react.png">
+                <div class="cellHeading">
+                    REACT
+                </div>
+                <div class="cellText">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati eum assumenda voluptas
+                    blanditiis
+                    culpa, dolores dolorum minima vel consectetur rem!
+                </div>
+            </div>
+            <div class="cell"><img src="images/node.png">
+                <div class="cellHeading">
+                    NODE
+                </div>
+                <div class="cellText">
+                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Obcaecati eum assumenda voluptas
+                    blanditiis
+                    culpa, dolores dolorum minima vel consectetur rem!
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Details -->
+    <div class="container">
+        <div class="textarea">
+            <h1>Detailed Courses</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat laudantium possimus quis iure eum
+                accusantium illo provident expedita quos accusamus tempora vel quo, fugiat quidem ut laborum, eius vero
+                non!</p>
+        </div>
+        <div class="imagearea">
+            <img src="images/editorPic.png" alt="editorial pic">
+        </div>
+    </div>
+    <div class="container">
+        <div class="imagearea">
+            <img src="images/editorPic.png" alt="editorial pic">
+        </div>
+        <div class="textarea">
+            <h1>Online Editor</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat laudantium possimus quis iure eum
+                accusantium illo provident expedita quos accusamus tempora vel quo, fugiat quidem ut laborum, eius vero
+                non!</p>
+        </div>
+    </div>
+    <div class="container">
+        <div class="textarea">
+            <h1>Notes & Quizzes</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat laudantium possimus quis iure eum
+                accusantium illo provident expedita quos accusamus tempora vel quo, fugiat quidem ut laborum, eius vero
+                non!</p>
+        </div>
+        <div class="imagearea">
+            <img src="images/editorPic.png" alt="editorial pic">
+        </div>
+    </div>
+    <div class="container">
+        <div class="imagearea">
+            <img src="images/editorPic.png" alt="editorial pic">
+        </div>
+        <div class="textarea">
+            <h1>Smart Support via ChatBot</h1>
+            <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Quaerat laudantium possimus quis iure eum
+                accusantium illo provident expedita quos accusamus tempora vel quo, fugiat quidem ut laborum, eius vero
+                non!</p>
+        </div>
+    </div>
+
+
+
+    <script src="https://unpkg.com/flickity@2/dist/flickity.pkgd.min.js"></script>
+
+    <script>
+        $('.main-carousel').flickity({
+            cellAlign: 'left',
+            wrapAround: true,
+            freeScroll: true,
+        });
+    </script>
+</body>
+
+</html>

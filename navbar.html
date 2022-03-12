@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Open+Sans&display=swap');
+
+        * {
+            margin: 0;
+            padding: 0;
+            font-family: 'Open Sans', sans-serif;
+        }
+
+        .nav {
+            font-weight: bold;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            width: 100%;
+            position: fixed;
+            top: 0;
+            background-color: white;
+        }
+
+        .nav div {
+            margin: 20px;
+            top: 0px;
+            position: relative;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            text-align: center;
+        }
+
+        .nav div:hover {
+            top: -3px;
+            color: #FF2E63;
+        }
+
+        .altf4logo{
+            margin-right: auto;
+            width: 150px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+
+        #logout{
+            padding: 10px;
+            color: white;
+            background-color: #FF2E63;
+            border-radius: 5px;
+        }
+
+        #logout:hover{
+            box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 1px 3px 1px;
+        }
+
+        .content{
+            margin-top: 82px;
+        }
+
+        @media only screen and (max-width: 768px) {
+            .nav{
+                justify-content: center;
+            }
+            .altf4logo{
+                display: none;
+            }
+        }
+
+    </style>
+</head>
+<body>
+    <head>
+        <div class="nav">
+            <img src="altf4 logo.svg" alt="altf4 logo" class="altf4logo">
+            <div id="editor">
+                Editor
+            </div>
+            <div id="projectIdeas">
+                Project Ideas
+            </div>
+            <div id="logout">
+                Logout
+            </div>
+        </div>
+        <div class="content">
+            <!-- All content goes here -->
+        </div>
+    </head>
+</body>
+</html>

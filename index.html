@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Chat Bot</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+    <link href="https://fonts.googleapis.com/css2?family=Ubuntu&display=swap" rel="stylesheet">
+    <style>
+        /* html{
+            background-color: #111;
+        } */
+        html,
+        body {
+            margin: 0;
+            padding: 0;
+        }
+
+        .chatbot {
+            position: fixed;
+            right: 30px;
+            bottom: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            font-family: 'Ubuntu', sans-serif;
+        }
+
+        #chatbox {
+            background-color: white;
+            box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+            border-radius: 20px;
+            margin-bottom: 10px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        #icon {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: white;
+            border-radius: 50%;
+            height: 50px;
+            width: 50px;
+            box-shadow: rgba(17, 17, 26, 0.1) 0px 4px 16px, rgba(17, 17, 26, 0.1) 0px 8px 24px, rgba(17, 17, 26, 0.1) 0px 16px 56px;
+            cursor: pointer;
+        }
+
+        #containerChat {
+            visibility: hidden;
+            opacity: 0;
+        }
+
+        .show-chatbox {
+            height: 500px;
+            width: 300px;
+            transition: 0.5s ease all;
+        }
+
+        .show-chats {
+            visibility: visible !important;
+            opacity: 1 !important;
+            transition: opacity 0.5s ease;
+        }
+
+        .hide-chatbox {
+            height: 0px;
+            width: 0px;
+            transition: 0.5s ease;
+        }
+
+        .change-chaticon-color {
+            background-color: #a2f1ff !important;
+        }
+
+        .input-area {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: absolute;
+            bottom: 5px;
+        }
+
+        .input-area input {
+            width: 75%;
+            padding: 10px;
+            outline: none;
+            border: 0px;
+            border-radius: 10px;
+            background-color: #eeeeee;
+            margin: 5px;
+        }
+
+        #sendIcon {
+            margin: 5px;
+            cursor: pointer;
+        }
+
+        #messageArea {
+            display: flex;
+            flex-direction: column;
+            height: 450px;
+            width: 100%;
+            overflow-y: scroll;
+        }
+
+        .messageBlock {
+            width: max-content;
+            max-width: 200px;
+            padding: 12px;
+            margin: 5px;
+            border-radius: 20px;
+            overflow-wrap: break-word;
+        }
+
+        ::-webkit-scrollbar {
+            width: 0;
+            background: transparent;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="chatbot">
+        <div id="chatbox" class="hide-chatbox">
+            <div id="containerChat">
+                <div id="messageArea">
+
+                </div>
+                <div class="input-area">
+                    <input id="chattext" type="text" placeholder="Type your query..." maxlength="200"
+                        autocomplete="off">
+                    <i class="material-icons" id="sendIcon">send</i>
+                </div>
+            </div>
+        </div>
+        <div id="icon">
+            <i class="material-icons" id="chatIcon">chat</i>
+        </div>
+    </div>
+</body>
+<script>
+    function formMessage(msg, pers) {
+        if (msg) {
+            var span = document.createElement("span");
+            span.innerHTML = msg;
+            if (pers == "user") {
+                span.style.backgroundColor = "#a2f1ff";
+                span.style.marginLeft = "auto";
+            }
+            else {
+                span.style.backgroundColor = "#d6d6d6";
+            }
+            span.classList.add('messageBlock');
+            var msgarea = document.getElementById("messageArea");
+            msgarea.appendChild(span);
+            msgarea.scrollTop = msgarea.scrollHeight;
+        }
+    }
+
+    function botReply(str) {
+        if (str == "") {
+            formMessage("Hi! I am ALT - F4 Virtual Assistant. How can I help you? &#128515;", "bot")
+        }
+        else{
+            formMessage(str, "bot")
+        }
+    }
+
+    function sendMessage() {
+        var msg = document.getElementById('chattext').value;
+        document.getElementById('chattext').value = "";
+        formMessage(msg, "user");
+        botReply("Sorry! Service Unavailable at the moment.");
+    }
+
+    document.getElementById('icon').addEventListener('click', function () {
+        document.getElementById('chatbox').classList.toggle('show-chatbox');
+        document.getElementById('chatbox').classList.toggle('hide-chatbox');
+        document.getElementById('containerChat').classList.toggle('show-chats');
+        document.getElementById('icon').classList.toggle('change-chaticon-color');
+        if (document.getElementById('messageArea').getElementsByTagName('span').length == 0) {
+            botReply("");
+        }
+    })
+
+    document.getElementById('sendIcon').addEventListener('click', sendMessage);
+    document.getElementById('chattext').addEventListener('keyup', function (e) {
+        if (e.keyCode == 13)
+            document.getElementById('sendIcon').click();
+    });
+</script>
+
+</html>

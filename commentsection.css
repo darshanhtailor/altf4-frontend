@@ -1,0 +1,215 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Ubuntu', sans-serif;
+    scrollbar-width: none;
+}
+.container {
+    display: flex;
+    width: 100%;
+    margin-top: 82px;
+}
+.playlist {
+    width: 25%;
+    background-color: white;
+}
+.playlist-scroll{
+    overflow-y: scroll;
+    height: calc(100vh - 75px);
+}
+.content {
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+}
+#placeHolder{
+    font-size: 30px;
+    text-align: center;
+}
+#placeHolder img{
+    width: 40vw;
+    margin: 100px 0;
+    opacity: 0.9;
+}
+#topic {
+    font-size: 25px;
+    padding: 10px;
+    background-color: #25478B;
+    color: white;
+}
+.topicname {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    font-size: 20px;
+    padding: 10px;
+    border: 1px solid rgb(180, 180, 180);
+    background-color: rgb(212, 212, 212);
+}
+@media only screen and (max-width: 768px) {
+    .topicname {
+        font-size: 15px;
+    }
+}
+i {
+    margin-left: auto;
+}
+.options div {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    cursor: pointer;
+    box-shadow: 0 0 1px rgba(34, 25, 25, 0.4);
+}
+.enable-options{
+    opacity: 1;
+    height: 132px;
+    transition: all 0.5s ease;
+}
+.disable-options{
+    opacity: 0;
+    height: 0px;
+    overflow: hidden;
+    transition: all 0.5s ease;
+}
+.selected-topic{
+    background-color: #FF2E63;
+    color: white;
+}
+.selected-category{
+    background-color: #fdd8e1;
+}
+.display-none{
+    display: none;
+}
+.content{
+    overflow-y: scroll;
+    height: calc(100vh - 75px);
+}
+#notes-content{
+    height: 100%;
+}
+#quiz-content{
+    text-align: center;
+}
+.quiz-question{
+    margin: 30px;
+}
+.quiz-question div{
+    padding: 10px;
+    font-size: 25px;
+    text-align: left;
+}   
+.quiz-options li{
+    padding: 10px;
+    list-style: none;
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    cursor: pointer;
+    background-color: #eff2f8 !important;
+    margin: 10px;
+    border-radius: 10px;
+    transition: all 0.2s ease;
+}
+
+.option-selected{
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, #4285F4 0px 0px 0px 3px;
+}
+.correct-option{
+    color: green;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, green 0px 0px 0px 3px;
+}
+.wrong-option{
+    color: red;
+    box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px, red 0px 0px 0px 3px;
+}
+#quiz-submit{
+    padding: 10px;
+    font-size: 15px;
+    margin: 30px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: #4285F4;
+    color: white;
+    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+#quiz-submit:active{
+    background-color: #335caf;
+
+}
+::-webkit-scrollbar {
+    width: 0;
+    background: transparent;
+}
+
+/* Comment Section CSS */
+#video-name{
+    display: flex;
+    background-color: #25478B;
+    /* background-color: #FF2E63; */
+    color: white;
+    align-items: center;
+    font-size: 26px;
+    padding-left: 10px;
+    cursor: pointer;
+}
+
+#comment-heading{
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    margin: 0px 10px;
+    margin-top: 20px;
+    width: auto;
+    border-radius: 5px;
+    padding: 5px;
+}
+
+#typeArea{
+    display: flex;
+    align-items: center;
+    margin: 0px 13px;
+    margin-bottom: 10px;
+}
+
+#typeArea input{
+    width: 100%;
+    padding: 10px;
+    margin-right: 5px;
+    border-radius: 10px;
+    outline: none;
+    border: none;
+    background-color: rgb(224, 224, 224);
+}
+
+#commentsArea{
+    border: 1px solid rgb(179, 179, 179);
+    height: 530px;
+    border-radius: 10px;
+    background-color: whitesmoke;
+    margin: 0px 10px 10px 10px;
+    display: flex;
+    flex-direction: column;
+    overflow-y: scroll;
+}
+#commentsNumber{
+    margin: 10px;
+}
+
+.textBlock {
+    width: max-content;
+    max-width: 80%;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 15px;
+    overflow-wrap: break-word;
+    background-color: #fdd8e1;
+    font-size: 20px;
+}
+
+.time-details{
+    font-size: 15px !important;
+    color: gray;
+}
